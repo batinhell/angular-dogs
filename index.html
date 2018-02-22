@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="dogs" class="no-js"> <!--<![endif]-->
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Angular Dogs</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="app/app.css">
+</head>
+<body>
+  <div class="container" ng-controller="AppController as vm">
+    <div class="row">
+      <div class="col-6">
+        <img src="app/doge.jpg" style="width:100px;" class="img-thumbnail">
+        <form>
+          <div class="form-group">
+            <label for="breedSelect">Выбери догго</label>
+            <select ng-change="vm.onBreedChange()" class="form-control" name="breedSelect" id="breedSelect" ng-model="vm.breed">
+              <option ng-repeat="breed in vm.breeds" value="{{breed}}">{{breed}}</option>
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <img ng-src="{{vm.src}}" class="img-fluid rounded">
+      </div>
+    </div>
+  </div>
+
+  <script src="node_modules/@bower_components/angular/angular.js"></script>
+  <script src="node_modules/@bower_components/angular-route/angular-route.js"></script>
+  <script src="app/app.js"></script>
+</body>
+</html>
